@@ -1,0 +1,11 @@
+{
+  "name": "mainstackassessment",
+  "version": "1.0.0",
+  "description": "MainStack Backend Assessment",
+  "main": "/dist/server.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "author": "Lawrence Mandong",
+  "license": "ISC"
+}
