@@ -56,4 +56,4 @@ COPY . .
 RUN npm install --only=development
 
 # Run tests
-CMD ["npm", "test --passWithNoTests"]
+CMD ["npm", "test"]
