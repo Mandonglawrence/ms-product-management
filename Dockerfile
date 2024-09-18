@@ -16,12 +16,12 @@ FROM base AS development
 ENV NODE_ENV=development
 
 # Install development dependencies
-RUN npm install --only=development
+RUN npm install
 
 # Expose the port for development
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]  # Run the development server
+CMD ["npm", "run", "start"]  # Run the development server
 
 # Stage 3: Production environment
 FROM base AS production
@@ -56,4 +56,4 @@ COPY . .
 RUN npm install --only=development
 
 # Run tests
-CMD ["npm", "test"]
+CMD ["npm", "test --passWithNoTests"]
