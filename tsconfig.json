@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "module": "commonjs", // Jest requires CommonJS format
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "resolveJsonModule": true,
+      "outDir": "./dist"
+    },
+    "include": ["src/**/*.ts", "tests/**/*.ts"], // Make sure your test files are included
+    "exclude": ["node_modules"]
+  }
+  

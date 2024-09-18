@@ -1,0 +1,75 @@
+{
+    "env": {
+      "node": true,         // Enables Node.js global variables and scoping
+      "es6": true,          // Enables ECMAScript 6 features
+      "jest": true          // Enables Jest global variables (for testing)
+    },
+    "parser": "@typescript-eslint/parser",  // Specifies ESLint to use the TypeScript parser
+    "extends": [
+      "eslint:recommended",                 // ESLint recommended rules
+      "plugin:@typescript-eslint/recommended",  // TypeScript-specific linting rules
+      "prettier"                            // Ensures ESLint and Prettier don’t conflict
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2020,                  // ECMAScript 2020 syntax
+      "sourceType": "module",               // Allows import/export syntax
+      "project": "./tsconfig.json"          // Links to TypeScript configuration
+    },
+    "plugins": [
+      "@typescript-eslint",                 // TypeScript-specific linting rules
+      "prettier",                           // Prettier plugin for code formatting
+      "security"                            // Security-focused linting rules
+    ],
+    "rules": {
+      "prettier/prettier": "error",         // Enforce Prettier formatting
+      "@typescript-eslint/no-unused-vars": ["error"],  // Disallow unused variables
+      "@typescript-eslint/no-explicit-any": "error",   // Disallow usage of the 'any' type
+      "@typescript-eslint/explicit-function-return-type": "error",  // Require explicit return types on functions
+      "@typescript-eslint/no-var-requires": "error",    // Disallow 'require' in favor of ES6 imports
+      "@typescript-eslint/no-empty-function": "error",  // Disallow empty functions
+      "no-console": "error",                // Disallow console statements in production
+      "no-debugger": "error",               // Disallow debugger statements
+      "no-duplicate-imports": "error",      // Disallow duplicate imports
+      "no-trailing-spaces": "error",        // Disallow trailing whitespace
+      "prefer-const": "error",              // Enforce const usage for variables that are never reassigned
+      "eqeqeq": "error",                    // Require strict equality (`===` and `!==`)
+      "security/detect-object-injection": "error", // Prevent object injection vulnerabilities
+      "security/detect-non-literal-require": "error", // Prevent dynamic require statements
+      "security/detect-non-literal-fs-filename": "error" // Prevent non-literal fs filenames
+    },
+    "overrides": [
+      {
+        "files": ["*.test.ts", "*.spec.ts"],  // Override rules for test files
+        "rules": {
+          "@typescript-eslint/explicit-function-return-type": "off",  // Relax function return type for tests
+          "no-console": "off"  // Allow console statements in tests for debugging
+        }
+      }
+    ],
+    "ignorePatterns": ["node_modules/", "dist/", "coverage/"],  // Ignore build-related directories
+    "settings": {
+        "@typescript-eslint/parser": {
+            "project": "./tsconfig.json",
+            "createDefaultProgram": true
+          },
+          "import/resolver": {
+            "node": {
+              "extensions": [".ts", ".js"]
+            }
+          },
+          "react": {
+            "version": "detect"
+          },
+          "prettier": {
+            "printWidth": 80,
+            "tabWidth": 2,
+            "singleQuote": true
+          },
+          "security": {
+            "ignore": [
+              "node_modules/**/*.js",
+              "dist/**/*.js"
+            ]
+          }
+    }
+  }
